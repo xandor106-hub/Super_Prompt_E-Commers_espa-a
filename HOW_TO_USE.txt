@@ -1,0 +1,82 @@
+
+### How to Use This
+
+#### For learning (30-day roadmap)
+
+1. Open `APRENDIZAJE/04-roadmap-aprendizaje.md`
+2. Follow 15 minutes/day
+
+#### To build your e-commerce
+
+1. Open `00-prompt-inicio-deepseek.md`
+2. Copy its content and paste it to **DeepSeek AI**
+3. Follow the execution order in `PROMPTS ESPECÍFICOS/00-README.md`
+4. The AI will generate ready-to-use code (SQL, TypeScript, Edge Functions)
+
+### Key Prompts
+
+| # | Prompt | What it generates |
+|---|--------|-------------------|
+| 12 | Products + Inventory | `products` table with `decrement_stock` |
+| 13 | Stripe Webhook | Idempotency, rollback, stock control |
+| 14 | Transactional Emails | Resend + React Email (RDL 1/2007) |
+| 17 | Legal Invoicing | Invoice generation, sequential numbering |
+| 21 | Returns + Refunds | 14-day withdrawal, Stripe refunds |
+| 22 | Integration Tests | RLS, checkout, webhook tests |
+| 23 | GDPR Retention | Automated data retention job |
+
+### Requirements
+
+- Supabase account (free tier works)
+- Stripe account (test mode available)
+- DeepSeek AI (free) or any LLM
+- Node.js 18+ (for generated frontend code)
+
+### What This Is NOT
+
+- ❌ Not executable code (prompts are instructions for AI)
+- ❌ Not a copy-paste ready project
+- ❌ Not a replacement for legal advice
+
+### License
+
+**MIT License** — Do whatever you want, just give credit.
+
+---
+
+## Versión en Español
+
+### ¿Qué es esto?
+
+Una **biblioteca profesional de prompts** de **45+ archivos** para construir un e-commerce completo en España con:
+
+| Componente | Tecnología |
+|------------|------------|
+| **Backend** | Supabase (PostgreSQL, RLS, Edge Functions) |
+| **Frontend** | Next.js 14 (App Router, TypeScript) |
+| **Pagos** | Stripe (3D Secure, webhooks, reembolsos) |
+| **Cumplimiento legal** | RGPD, LSSI, LOPDGDD, ePrivacy, RDL 1/2007 |
+| **Seguridad** | Rate limiting, idempotencia, herramientas reales |
+| **Tests** | Tests de integración (RLS, checkout, webhooks) |
+
+### ¿Por qué lo creé?
+
+Pasé semanas aprendiendo, preguntando y organizando. Esta biblioteca es el resultado de:
+
+- ✅ Colaboración con **DeepSeek AI** (contenido técnico)
+- ✅ Auditado por **Claude** (legal y arquitectura)
+- ✅ Auditado por **ChatGPT** (negocio y casos borde)
+
+**Nota final: 9.3/10** — Listo para producción.
+
+### ¿Por qué lo comparto gratis?
+
+Porque creo en el conocimiento abierto. Porque aprendí gracias a la comunidad. Si esto te ayuda a construir tu negocio, ya estoy pagado.
+
+**¿Te ha sido útil?**  
+Considera invitarme a un café ☕
+
+(https://paypal.me/sandor106)
+https://ko-fi.com/xandor106
+
+### Estructura del repositorio

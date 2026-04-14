@@ -1,0 +1,29 @@
+DeepSeek-Tesoro/
+│
+├── 📄 00-prompt-inicio-deepseek.md
+│
+├── 📜 PROMPTS PRINCIPALES
+│   ├── 00-super-prompt-v3-europa.md
+│   └── 01-super-prompt-v3-resumido.md
+│
+├── 📜 PROMPTS ESPECÍFICOS
+│   ├── 02-super-prompt-v4-cookies-legal.md
+│   ├── 03-super-prompt-personal-espana.md
+│   └── 11-super-prompt-legal-asistido.md
+│
+├── 📚 APRENDIZAJE
+│   ├── 04-roadmap-aprendizaje.md
+│   └── 05-checklist-seguridad.md
+│
+├── ⚖️ LEGAL
+│   ├── 06-aviso-legal.md
+│   ├── 07-politica-privacidad.md
+│   └── 08-politica-cookies.md
+│
+├── 🛠️ REFERENCIA
+│   └── 09-comandos-foxguard.md
+│
+├── 🏆 RESUMEN
+│   └── 10-resumen-final.md
+│
+└── 📄 LICENSE (MIT o CC BY-SA)

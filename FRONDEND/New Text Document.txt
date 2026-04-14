@@ -1,0 +1,716 @@
+# 📚 BIBLIOTECA COMPLETA DE PROMPTS - FRONTEND PROFESIONAL E-COMMERCE GDPR
+# Versión: 2.0
+# Stack: Next.js 14 + TypeScript + Supabase + Tailwind + Framer Motion
+
+================================================================================
+📁 ÍNDICE
+================================================================================
+
+PROMPT #0 V1: Diagnóstico Pre-Integración Backend (CON EXPORTACIÓN .TXT)
+PROMPT #1 V1: Arquitectura Frontend Completa
+PROMPT #2 V2: Tarjetas de Producto Interactivas (CON RECURSOS VISUALES)
+PROMPT #3 V1: Página de Detalle de Producto
+PROMPT #4 V1: Banner de Cookies GDPR (ePrivacy)
+PROMPT #5 V1: Checkout con Stripe (PSD2/SCA)
+PROMPT #6 V1: Panel de Privacidad del Usuario (GDPR)
+PROMPT #7 V1: Auditoría Lado Cliente
+PROMPT #8 V1: Sistema Visual Completo (Backgrounds, Animaciones, Colores, Tipografía)
+PROMPT #9 V1: Configuración de Variables de Entorno (.env)
+
+================================================================================
+⚙️ ESPECIFICACIÓN GLOBAL DE EFICIENCIA (APLICABLE A TODOS LOS PROMPTS)
+================================================================================
+
+[Especificación de Eficiencia y Estructura]
+
+## Principios de Eficiencia Obligatorios
+
+1. **Colocación (Colocation):** Los archivos deben vivir lo más cerca posible de donde se usan. Si un componente solo se usa en una página, va dentro de la carpeta de esa página, no en `/shared`.
+
+2. **Barrel Exports Controlados:** Usar `index.ts` solo en la raíz de cada feature para exponer su API pública. No abusar de barrels que rompan el tree-shaking.
+
+3. **Lazy Loading por Defecto:** Los componentes de páginas o features grandes deben cargarse con `next/dynamic` o `React.lazy`. Especificar en la estructura qué componentes son candidatos a lazy loading.
+
+4. **Zero Dependencias Innecesarias:** Si se sugiere alguna librería npm, justificar por qué es necesaria y si tiene alternativa nativa más ligera.
+
+5. **TypeScript Estricto:** Todo archivo debe ser `.ts` o `.tsx`. No se acepta JavaScript plano.
+
+6. **Tailwind CSS para Estilos:** Asumir Tailwind como capa de estilos. No generar archivos `.css` o `.module.css` separados a menos que sea estrictamente necesario.
+
+7. **Server Components por Defecto:** En Next.js App Router, todo componente debe ser Server Component a menos que necesite interactividad (`'use client'`). Marcar explícitamente en la estructura cuáles son cliente.
+
+8. **Carga Progresiva de Imágenes:** Todas las imágenes deben usar `next/image` con `priority={false}` excepto las primeras visibles (LCP) que llevarán `priority`.
+
+## Formato de Salida Esperado (para prompts que generan código)
+
+1. **Árbol de Carpetas Completo** con responsabilidad de cada archivo.
+2. **Lista de Decisiones de Eficiencia:** Breve párrafo explicando por qué se estructuró así.
+3. **Código** de los archivos solicitados.
+
+================================================================================
+🔍 PROMPT #0 V1: DIAGNÓSTICO PRE-INTEGRACIÓN BACKEND (CON EXPORTACIÓN .TXT)
+================================================================================
+
+[Rol]
+Actúa como un Arquitecto de Integración especializado en conectar backends existentes (Supabase) con frontends modernos (Next.js). No generes código de integración todavía.
+
+[Objetivo]
+Realizar un diagnóstico completo de mi backend para preparar una integración perfecta con el frontend. Debes hacerme una serie de preguntas organizadas por categorías. Yo responderé con la información que tengo.
+
+[Instrucciones]
+1. Hazme preguntas una categoría a la vez.
+2. Espera mis respuestas antes de pasar a la siguiente categoría.
+3. Si no sé responder algo, sugiéreme dónde puedo encontrar esa información.
+4. Al final, genera:
+   a) Un resumen estructurado en la conversación.
+   b) Un archivo `.txt` descargable con todos los datos recopilados.
+
+[Formato del Archivo .txt]
+El archivo debe llamarse: `diagnostico-backend-[FECHA].txt`
+
+Estructura del contenido:
+================================================================================
+DIAGNÓSTICO DE BACKEND PARA INTEGRACIÓN FRONTEND
+Fecha: [FECHA]
+Proyecto: [NOMBRE]
+================================================================================
+
+CONEXIÓN Y AUTENTICACIÓN
+
+Supabase URL: [VALOR]
+Anon Key (pública): [VALOR O INDICAR SI SE REQUIERE]
+Autenticación usada: [TIPO]
+RLS habilitado en: [LISTA DE TABLAS]
+Acceso público permitido: [SÍ/NO - DETALLES]
+
+ESTRUCTURA DE DATOS (TABLAS)
+
+[Para cada tabla]
+Tabla: [NOMBRE]
+
+RLS: [SÍ/NO - POLÍTICA]
+
+Columnas:
+
+[nombre] : [tipo] : [nullable?] : [descripción]
+
+Relaciones: [DESCRIPCIÓN]
+
+EDGE FUNCTIONS
+
+[Para cada Edge Function]
+Nombre: [NOMBRE]
+
+Propósito: [DESCRIPCIÓN]
+
+Parámetros de entrada: [OBJETO JSON]
+
+Respuesta esperada: [OBJETO JSON]
+
+Requiere autenticación: [SÍ/NO]
+
+STORAGE (BUCKETS)
+
+[Para cada bucket]
+Bucket: [NOMBRE]
+
+Público: [SÍ/NO]
+
+Políticas: [DESCRIPCIÓN]
+
+Uso: [IMÁGENES/ARCHIVOS/ETC.]
+
+CONVENCIONES DE NOMBRADO
+
+Formato de campos: [snake_case / camelCase]
+Formato de IDs: [UUID / INT / TEXT]
+Precios almacenados como: [cents / decimal]
+Fechas almacenadas como: [ISO 8601 / TIMESTAMPTZ]
+URLs de imágenes: [completa / path relativo]
+
+TRANSFORMACIONES REQUERIDAS (BACKEND → FRONTEND)
+
+[Para cada campo que necesite transformación]
+Campo origen -> Campo destino: [REGLA]
+
+VARIABLES DE ENTORNO
+
+[LISTA DE TODAS LAS VARIABLES PÚBLICAS (NEXT_PUBLIC_*)]
+[LISTA DE VARIABLES SECRETAS QUE NUNCA DEBEN EXPONERSE]
+
+NOTAS ADICIONALES
+
+[OBSERVACIONES SOBRE SEGURIDAD, LÍMITES, ETC.]
+================================================================================
+FIN DEL DIAGNÓSTICO
+================================================================================
+
+text
+
+[Categorías de Preguntas]
+
+## Categoría 1: Conexión y Autenticación
+- URL del proyecto Supabase
+- ¿Tipo de autenticación usada?
+- ¿Usas RLS? ¿En qué tablas?
+- ¿Los usuarios no autenticados pueden ver algo? ¿Qué?
+
+## Categoría 2: Estructura de Datos (Tablas Relevantes)
+Para cada tabla que quieres exponer al frontend:
+- Nombre exacto de la tabla
+- Lista de columnas con sus tipos de datos
+- ¿Cuáles columnas son públicas? ¿Cuáles requieren autenticación?
+- Relaciones con otras tablas
+
+## Categoría 3: Edge Functions Existentes
+- Nombres de las Edge Functions
+- Qué hace cada una
+- Qué parámetros reciben
+- Qué devuelven
+
+## Categoría 4: Almacenamiento de Archivos (Storage)
+- Buckets existentes
+- ¿Son públicos o privados?
+- Políticas de acceso
+
+## Categoría 5: Convenciones de Nombrado
+- ¿Usas snake_case o camelCase?
+- ¿IDs numéricos o UUID?
+- ¿Prefijos en nombres de tablas?
+
+## Categoría 6: Transformaciones Necesarias
+- ¿Precios en cents o en euros?
+- ¿Fechas en ISO o timestamp?
+- ¿Imágenes: URL completa o path relativo?
+
+## Categoría 7: Variables de Entorno Disponibles
+- ¿Ya tienes .env configurado?
+- ¿Qué variables públicas tienes?
+- ¿Hay variables secretas que el frontend NO debe conocer?
+
+[Regla de Oro]
+NO GENERES CÓDIGO DE INTEGRACIÓN hasta que yo confirme que el diagnóstico (.txt) es correcto.
+
+[Entregables Finales]
+1. Resumen en la conversación.
+2. Archivo .txt con el contenido completo.
+
+================================================================================
+🏗️ PROMPT #1 V1: ARQUITECTURA FRONTEND COMPLETA
+================================================================================
+
+[Rol]
+Actúa como un Arquitecto Frontend Senior especializado en aplicaciones e-commerce con cumplimiento GDPR y stack Supabase + Next.js.
+
+[Contexto]
+Tengo un backend en Supabase (EU region) ya diseñado y seguro con:
+- RLS por usuario
+- Tablas: profiles, consent_logs, orders, audit_logs, data_subject_requests
+- Edge Functions para Stripe, exportación GDPR, derecho al olvido
+- Autenticación con MFA y JWT de 15 minutos
+
+[Objetivo]
+Diseñar la estructura completa de carpetas y arquitectura del frontend usando Next.js 14 (App Router) con TypeScript estricto.
+
+[Requisitos Obligatorios]
+1. Separación por funcionalidades (features): productos, auth, consent, cart, gdpr.
+2. Capa de servicios aislada para llamadas a Supabase y Edge Functions.
+3. Gestión de cookies y consentimientos (ePrivacy) con banner funcional.
+4. Soporte multi-idioma (i18n) para EU (es, en, fr mínimo).
+5. Componentes accesibles (WCAG 2.1 AA) y navegación por teclado.
+6. Middleware para manejo de sesión, refresh de token, y redirección por idioma.
+7. Auditoría lado cliente para eventos GDPR relevantes.
+
+[Aplicar Especificación Global de Eficiencia]
+
+[Formato de Salida]
+- Esquema de carpetas completo con explicación de responsabilidad de cada archivo.
+- Sin código, solo arquitectura y justificación de decisiones.
+- Lista de dependencias npm recomendadas con justificación.
+
+[Restricciones]
+- No incluyas código de backend. Mi backend ya está hecho.
+- Todo debe alinearse con GDPR, ePrivacy y PSD2.
+- Hosting previsto: Vercel (EU region).
+
+================================================================================
+🃏 PROMPT #2 V2: TARJETAS DE PRODUCTO INTERACTIVAS (CON RECURSOS VISUALES)
+================================================================================
+
+[Rol]
+Actúa como un desarrollador Frontend especializado en React/Next.js, TypeScript, Tailwind CSS y UX para e-commerce europeo.
+
+[Contexto]
+- Stack: Next.js 14 App Router, TypeScript, Tailwind CSS, Framer Motion.
+- Backend: Supabase con RLS. Endpoint GET /api/productos devuelve array de productos.
+- Cada producto tiene: id, slug, nombre, precio_cents, imagenes[], stock.
+
+[Objetivo]
+Crear un componente `ProductGrid` y `ProductCard` que:
+1. Consuma los productos desde el servicio `productService.ts`.
+2. Renderice una cuadrícula responsive (1 col móvil, 2 md, 3 lg, 4 xl).
+3. Al hacer clic en cualquier parte de la tarjeta, navegue a `/productos/[slug]`.
+4. Sea completamente accesible (teclado, screen readers).
+5. Muestre lazy loading en imágenes con `next/image`.
+6. Incluya estado de carga (skeleton animado) y error manejado.
+7. Implemente `Suspense` para streaming del grid completo.
+
+[Especificación de Recursos Visuales]
+
+## Imágenes
+- **Para desarrollo/pruebas:** Usar imágenes placeholder de Unsplash o Picsum.
+- **Configuración necesaria en next.config.js:** remotePatterns para Unsplash y Picsum.
+- **Para producción:** Asumir que las imágenes estarán en `/public/images/productos/[slug].webp`.
+
+## Animaciones
+- **Librería:** Framer Motion.
+- **Efectos deseados:** Hover con escala suave, entrada del grid con fade-in-up escalonado, skeleton con pulso.
+- **Ubicación de variantes:** `shared/ui/animations/fadeIn.ts`
+
+## Fondos
+- Fondo del grid: Blanco o gris muy claro (`bg-white` o `bg-gray-50`).
+
+[Requerimientos Técnicos Específicos]
+- Usar `next/link` para navegación SPA.
+- La tarjeta debe extender el área clickable al contenedor entero.
+- El servicio debe incluir manejo de errores y tipado TypeScript estricto.
+
+[Aplicar Especificación Global de Eficiencia]
+
+## Estructura de Carpetas Solicitada
+src/
+├── features/
+│ └── productos/
+│ ├── components/
+│ │ ├── ProductCard.tsx
+│ │ ├── ProductGrid.tsx
+│ │ └── ProductCardSkeleton.tsx
+│ ├── hooks/
+│ │ └── useProducts.ts
+│ ├── services/
+│ │ └── productService.ts
+│ ├── types/
+│ │ └── product.types.ts
+│ └── index.ts
+├── shared/
+│ └── ui/
+│ └── animations/
+│ └── fadeIn.ts
+└── app/
+└── [lang]/
+└── productos/
+└── page.tsx
+
+text
+
+[Formato de Salida Esperado]
+1. Árbol de Carpetas.
+2. Decisiones de Eficiencia.
+3. Código completo de los archivos listados.
+4. Fragmento de next.config.js con configuración de imágenes.
+
+================================================================================
+🔎 PROMPT #3 V1: PÁGINA DE DETALLE DE PRODUCTO
+================================================================================
+
+[Rol]
+Actúa como un especialista en Next.js App Router y SEO técnico para e-commerce.
+
+[Contexto]
+Tengo implementado:
+- Página de listado de productos con tarjetas.
+- Backend con endpoint GET /api/productos/[slug].
+- Necesito la página de detalle que reciba el slug desde la URL.
+
+[Objetivo]
+Crear la página `app/[lang]/productos/[slug]/page.tsx` que:
+1. Obtenga el producto usando `generateStaticParams` para SSG si es posible.
+2. Muestre galería de imágenes, nombre, precio formateado (EUR), descripción, stock.
+3. Botón de "Añadir al carrito".
+4. Migas de pan (breadcrumbs) para SEO.
+5. Schema.org JSON-LD para producto.
+6. Manejo de producto no encontrado (404).
+
+[Requerimientos Técnicos]
+- Tipado TypeScript completo.
+- Manejo de metadata dinámica para SEO.
+- ISR con revalidate cada hora.
+- El carrito debe respetar el consentimiento de cookies funcionales.
+
+[Aplicar Especificación Global de Eficiencia]
+
+[Formato de Salida]
+- Código completo de `page.tsx`.
+- Código de `generateStaticParams`.
+- Código de `generateMetadata`.
+- Código del componente de galería de imágenes.
+
+================================================================================
+🍪 PROMPT #4 V1: BANNER DE COOKIES GDPR (ePrivacy)
+================================================================================
+
+[Rol]
+Actúa como un experto en cumplimiento ePrivacy y GDPR aplicado a frontend.
+
+[Contexto]
+Mi backend tiene:
+- Tabla `consent_logs` para registrar consentimientos.
+- Edge Function `record-consent`.
+
+[Objetivo]
+Crear un componente `CookieConsentBanner` que:
+1. Se muestre solo si el usuario no ha dado consentimiento previo.
+2. Bloquee todas las cookies no esenciales hasta que el usuario acepte.
+3. Permita granularidad por categoría.
+4. Envíe el consentimiento a la Edge Function `record-consent`.
+5. Almacene la preferencia en `localStorage`.
+6. Incluya enlaces a políticas legales.
+
+[Categorías de Cookies]
+- necessary, functional, analytics, marketing.
+
+[Requerimientos Técnicos]
+- Componente cliente (`'use client'`).
+- Accesible por teclado.
+- Sin dependencias externas.
+
+[Aplicar Especificación Global de Eficiencia]
+
+[Formato de Salida]
+- Código de `CookieConsentBanner.tsx`.
+- Código de `useConsent.ts`.
+- Código de `consentService.ts`.
+- Lógica de bloqueo de scripts.
+
+================================================================================
+💳 PROMPT #5 V1: CHECKOUT CON STRIPE (PSD2/SCA)
+================================================================================
+
+[Rol]
+Actúa como un integrador de Stripe especializado en cumplimiento PSD2/SCA para Europa.
+
+[Contexto]
+Mi backend tiene:
+- Edge Function `create-checkout-session`.
+- Edge Function `stripe-webhook`.
+- Tablas `orders` y `order_items`.
+
+[Objetivo]
+Crear el flujo de checkout en el frontend:
+1. Botón "Pagar" que llame a `create-checkout-session`.
+2. Redirección a Stripe Checkout.
+3. Página de éxito y cancelación.
+
+[Requerimientos]
+- Manejar estado de carga.
+- Usuario autenticado requerido.
+- Verificación de pago exitoso.
+
+[Aplicar Especificación Global de Eficiencia]
+
+[Formato de Salida]
+- Código de `useCheckout.ts`.
+- Código de `checkoutService.ts`.
+- Código de página de éxito.
+- Código de `CartSummary`.
+
+================================================================================
+🔐 PROMPT #6 V1: PANEL DE PRIVACIDAD DEL USUARIO (GDPR)
+================================================================================
+
+[Rol]
+Actúa como un desarrollador especializado en interfaces de privacidad y GDPR.
+
+[Contexto]
+Mi backend tiene Edge Functions:
+- `request-data-export`
+- `request-erasure`
+- `request-portability`
+- `gdpr-status`
+Y tabla `data_subject_requests`.
+
+[Objetivo]
+Crear página `/cuenta/privacidad` con:
+1. Estado de solicitudes GDPR.
+2. Solicitar exportación de datos.
+3. Solicitar portabilidad.
+4. Solicitar derecho al olvido.
+5. Gestionar consentimientos de marketing.
+
+[Requerimientos]
+- Confirmación secundaria para acciones destructivas.
+- Indicar plazo legal (30 días).
+
+[Aplicar Especificación Global de Eficiencia]
+
+[Formato de Salida]
+- Código de `page.tsx`.
+- Código de `useDataSubjectRights.ts`.
+- Código de `gdprService.ts`.
+- Componentes de botones específicos.
+
+================================================================================
+📊 PROMPT #7 V1: AUDITORÍA LADO CLIENTE
+================================================================================
+
+[Rol]
+Actúa como un especialista en seguridad y auditoría de aplicaciones web.
+
+[Contexto]
+Tengo tabla `audit_logs` en Supabase con RLS para `service_role`.
+Necesito Edge Function `client-audit-log`.
+
+[Objetivo]
+Crear `clientAudit.ts` que envíe logs con:
+- Acción, metadata anónima, timestamp.
+- No incluir IP.
+- Solo producción y con consentimiento.
+
+[Eventos a Auditar]
+- Consentimiento aceptado/rechazado.
+- Solicitud de exportación/erasure.
+- Cambio de privacidad.
+- Cierre de sesión.
+
+[Aplicar Especificación Global de Eficiencia]
+
+[Formato de Salida]
+- Código de `clientAudit.ts`.
+- Código de Edge Function `client-audit-log`.
+- Política RLS.
+
+================================================================================
+🎨 PROMPT #8 V1: SISTEMA VISUAL COMPLETO
+================================================================================
+
+[Rol]
+Actúa como un Diseñador de Sistemas de Diseño y Desarrollador Frontend.
+
+[Contexto]
+- Stack: Next.js 14, TypeScript, Tailwind, Framer Motion.
+- Proyecto: E-commerce GDPR.
+
+[Objetivo]
+Diseñar Sistema Visual con:
+1. Paleta de colores.
+2. Tipografía.
+3. Catálogo de animaciones.
+4. Catálogo de fondos.
+5. Componentes base animados.
+6. Configuración de imágenes.
+7. Variables CSS globales.
+
+[Especificación de Recursos Visuales]
+- Paleta: Minimalista, neutros, un acento sutil.
+- Tipografía: Inter o Geist vía `next/font`.
+- Fondos: GradientBg, DotPatternBg, GridBg, WaveBg.
+- Animaciones: fadeIn, fadeInUp, staggerContainer, scaleOnHover.
+- Hooks: useReducedMotion.
+
+[Aplicar Especificación Global de Eficiencia]
+
+## Estructura de Carpetas
+src/
+├── shared/
+│ └── ui/
+│ ├── animations/
+│ ├── backgrounds/
+│ ├── components/
+│ └── theme/
+├── styles/globals.css
+└── tailwind.config.js
+
+text
+
+[Formato de Salida]
+1. Árbol de Carpetas.
+2. tailwind.config.js.
+3. globals.css.
+4. next.config.js (imágenes).
+5. app/layout.tsx.
+6. Código de archivos listados.
+7. Ejemplo de uso.
+
+================================================================================
+🔐 PROMPT #9 V1: CONFIGURACIÓN DE VARIABLES DE ENTORNO (.env)
+================================================================================
+
+[Rol]
+Actúa como un especialista en DevSecOps y seguridad Next.js + Supabase.
+
+[Contexto]
+Proyecto full-stack con Supabase, Next.js, Stripe, Vercel.
+
+[Objetivo]
+Generar configuración de variables de entorno para desarrollo y producción.
+
+[Requisitos de Seguridad]
+1. `NEXT_PUBLIC_` solo para claves públicas.
+2. `.env.local` y `.env.production` en `.gitignore`.
+3. Validación con Zod.
+
+[Variables Requeridas]
+## Supabase
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `SUPABASE_SERVICE_ROLE_KEY`
+
+## Stripe
+- `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`
+- `STRIPE_SECRET_KEY`
+- `STRIPE_WEBHOOK_SECRET`
+
+## App
+- `NEXT_PUBLIC_APP_URL`
+- `NEXT_PUBLIC_APP_NAME`
+- `NEXT_PUBLIC_DEFAULT_LANG`
+
+## GDPR
+- `NEXT_PUBLIC_CONSENT_VERSION`
+- `NEXT_PUBLIC_PRIVACY_POLICY_URL`
+- `NEXT_PUBLIC_COOKIE_POLICY_URL`
+- `NEXT_PUBLIC_DPA_CONTACT_EMAIL`
+
+[Formato de Salida]
+1. Contenido de `.env.example`.
+2. Líneas para `.gitignore`.
+3. Código de `src/lib/env/client.ts`.
+4. Código de `src/lib/env/server.ts`.
+5. Instrucciones para Vercel.
+6. Script `env:check`.
+
+================================================================================
+✅ PROMPT #10 V1: CHECKLIST PRE-CONFIGURACIÓN .ENV
+================================================================================
+
+[Rol]
+Actúa como un auditor de configuración y seguridad especializado en entornos Next.js + Supabase + Stripe.
+
+[Objetivo]
+Generar una checklist interactiva y detallada que me guíe paso a paso para recopilar TODA la información necesaria antes de configurar mis archivos `.env`. No generes código de aplicación todavía. Solo ayúdame a verificar que tengo todos los datos requeridos.
+
+[Formato de Salida Esperado]
+
+## 1. CHECKLIST MAESTRA (TABLA)
+
+Genera una tabla markdown con TODAS las variables requeridas:
+
+| # | Categoría | Variable | ¿Público? | ¿Obligatorio? | Dónde obtenerlo | Estado |
+|---|-----------|----------|-----------|---------------|-----------------|--------|
+| 1 | Supabase | NEXT_PUBLIC_SUPABASE_URL | ✅ Sí | ✅ Sí | Dashboard > Settings > API > Project URL | [ ] |
+| 2 | Supabase | NEXT_PUBLIC_SUPABASE_ANON_KEY | ✅ Sí | ✅ Sí | Dashboard > Settings > API > anon/public | [ ] |
+| 3 | Supabase | SUPABASE_SERVICE_ROLE_KEY | ❌ No | ✅ Sí | Dashboard > Settings > API > service_role | [ ] |
+| 4 | Stripe | NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY | ✅ Sí | ⚠️ Si hay pagos | Stripe Dashboard > Developers > API Keys > Publishable key | [ ] |
+| 5 | Stripe | STRIPE_SECRET_KEY | ❌ No | ⚠️ Si hay pagos | Stripe Dashboard > Developers > API Keys > Secret key | [ ] |
+| 6 | Stripe | STRIPE_WEBHOOK_SECRET | ❌ No | ⚠️ Si hay pagos | Stripe Dashboard > Developers > Webhooks > Signing secret | [ ] |
+| 7 | App | NEXT_PUBLIC_APP_URL | ✅ Sí | ✅ Sí | Definir: localhost (dev) o dominio (prod) | [ ] |
+| 8 | App | NEXT_PUBLIC_APP_NAME | ✅ Sí | ✅ Sí | Definir nombre comercial | [ ] |
+| 9 | App | NEXT_PUBLIC_DEFAULT_LANG | ✅ Sí | ✅ Sí | es / en / fr / de | [ ] |
+| 10 | GDPR | NEXT_PUBLIC_CONSENT_VERSION | ✅ Sí | ✅ Sí | Formato: 1.0.0 o YYYY-MM-DD | [ ] |
+| 11 | GDPR | NEXT_PUBLIC_PRIVACY_POLICY_URL | ✅ Sí | ✅ Sí | URL completa a política | [ ] |
+| 12 | GDPR | NEXT_PUBLIC_COOKIE_POLICY_URL | ✅ Sí | ✅ Sí | URL completa a política | [ ] |
+| 13 | GDPR | NEXT_PUBLIC_DPA_CONTACT_EMAIL | ✅ Sí | ✅ Sí | Email para temas de privacidad | [ ] |
+| 14 | GDPR | DATA_RETENTION_DAYS | ❌ No | ⚠️ Recomendado | Días de retención legal (ej: 2555 para 7 años) | [ ] |
+
+## 2. GUÍA VISUAL POR PROVEEDOR
+
+### 📦 SUPABASE
+- Ruta exacta: Project Settings > API
+- Precaución: NUNCA exponer service_role en cliente
+
+### 💳 STRIPE
+- Ruta: Developers > API Keys
+- Diferencia Test vs Live: pk_test_ vs pk_live_
+
+### 🌐 APP
+- URL desarrollo: http://localhost:3000
+- URL producción: https://tudominio.com
+
+### 🔒 GDPR
+- CONSENT_VERSION: 1.0.0
+- URLs legales: /legal/privacidad, /legal/cookies
+
+## 3. CHECKLIST IMPRIMIBLE
+[ ] SUPABASE: URL del proyecto
+[ ] SUPABASE: Anon Key (pública)
+[ ] SUPABASE: Service Role Key (SECRETA)
+[ ] STRIPE: Publishable Key
+[ ] STRIPE: Secret Key (SECRETA)
+[ ] STRIPE: Webhook Secret (SECRETA)
+[ ] APP: URL
+[ ] APP: Nombre
+[ ] APP: Idioma por defecto
+[ ] GDPR: Versión de consentimiento
+[ ] GDPR: URL Política de Privacidad
+[ ] GDPR: URL Política de Cookies
+[ ] GDPR: Email de contacto DPO
+[ ] GDPR: Días de retención (SECRETA)
+
+text
+
+================================================================================
+🎯 PROMPT #11 V1: SEPARACIÓN ESTRICTA LÓGICA / VISUAL
+================================================================================
+
+[Rol]
+Actúa como un Arquitecto Frontend especializado en Design Systems y Separación de Concerns (SoC).
+
+[Principio Fundamental]
+TODO el código que generes debe seguir esta regla inquebrantable:
+
+**LA CAPA VISUAL (COLORES, FUENTES, ESPACIOS, ANIMACIONES) DEBE ESTAR COMPLETAMENTE AISLADA DE LA LÓGICA DE COMPONENTES.**
+
+[Reglas Obligatorias para el Código Generado]
+
+## Regla 1: Variables Centralizadas
+- Todos los colores deben definirse en variables CSS dentro de `:root` en `globals.css`.
+- Los componentes NUNCA deben contener valores hex, rgb, px o rem quemados.
+
+## Regla 2: Componentes Sin Valores Concretos
+- Los componentes usan nombres semánticos: `primary`, `secondary`, `danger`, `success`.
+- Ejemplo CORRECTO: `<button className="bg-primary text-primary-foreground">`
+- Ejemplo INCORRECTO: `<button className="bg-[#2a2a2a] text-white">`
+
+## Regla 3: Componentes Base (UI Primitives)
+- Crear componentes base como `<Button>`, `<Card>`, `<Input>` en `shared/ui/components/`.
+- Los componentes de features DEBEN usar estos primitivos, NUNCA estilos directos.
+
+## Regla 4: Cero Estilos Inline
+- PROHIBIDO usar `style={{}}` en componentes React.
+- PROHIBIDO usar clases arbitrarias de Tailwind como `bg-[#xxx]` o `w-[123px]`.
+
+[Verificación Final]
+| Pregunta | Respuesta Correcta |
+|:---|:---|
+| ¿Si quiero cambiar el color primary, cuántos archivos debo tocar? | SOLO 1 (globals.css) |
+| ¿Hay algún valor hexadecimal fuera de globals.css? | NO |
+
+================================================================================
+📦 DEPENDENCIAS RECOMENDADAS
+================================================================================
+
+| Paquete | Justificación |
+|:---|:---|
+| next | Framework principal |
+| @supabase/supabase-js | Cliente Supabase |
+| @supabase/ssr | Manejo de cookies y sesión en Next.js |
+| @stripe/stripe-js | Cliente Stripe |
+| framer-motion | Animaciones avanzadas y stagger |
+| zustand | Estado global ligero (carrito) |
+| zod | Validación de formularios |
+| next-intl | i18n optimizado para Next.js App Router |
+| tailwindcss | Estilos |
+| sharp | Optimización de imágenes en next/image |
+
+================================================================================
+✅ INSTRUCCIONES DE USO
+================================================================================
+
+1. Guarda este archivo como `prompts.md` en `/docs` de tu proyecto.
+2. Para usar un prompt, copia desde el encabezado hasta el siguiente separador.
+3. Pega en ChatGPT/Claude y sigue las instrucciones.
+4. El Prompt #0 es el primero que debes usar para diagnosticar tu backend.
+
+================================================================================
+FIN DE LA BIBLIOTECA
+================================================================================

@@ -1,7 +1,4 @@
-# Super_Prompt_E-Commers_espa-a
-SUPER_PROMPTS— Professional E-commerce with all laws Spain ( And the World)
-
-# Prompt Tesoro — Professional E-commerce Blueprint for Spain
+# 🏆 DeepSeek Tesoro — Professional E-commerce Blueprint for Spain
 
 > **A professional prompt library to build a fully compliant, production-ready e-commerce in Spain**
 
@@ -56,18 +53,3 @@ Consider buying me a coffee ☕
 (https://paypal.me/sandor106)
 
 ### Repository Structure
-
-
-│
-├── 00-prompt-inicio-deepseek.md → Instructions for AI assistant
-├── README.md → This file
-├── LICENSE → MIT License
-│
-├── 📜 PROMPTS PRINCIPALES/ → Core backend prompts (2 files)
-├── 📜 PROMPTS ESPECÍFICOS/ → Specific backend prompts (15 files)
-├── 📂 FRONTEND/ → Next.js frontend prompts (17 files)
-├── 📂 INTEGRACION/ → Backend↔Frontend integration (3 files)
-├── 📂 LEGAL/ → Legal templates (3 files)
-├── 📂 APRENDIZAJE/ → Learning roadmap + checklist (2 files)
-├── 📂 REFERENCIA/ → Foxguard commands (1 file)
-└── 📂 RESUMEN/ → Final summary (1 file)

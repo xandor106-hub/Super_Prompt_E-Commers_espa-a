@@ -1,0 +1,7 @@
+Este prompt depende del Prompt #12 (tabla products + decrement_stock) porque:
+
+Usa decrement_stock (creado en Prompt #12)
+
+Necesita increment_stock (mencionado aquí, pero se debe crear)
+
+Asegúrate de que increment_stock se genere junto con este prompt.
