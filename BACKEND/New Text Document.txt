@@ -1,4 +1,4 @@
-DeepSeek-Tesoro/
+-Tesoro/
 │
 ├── 📄 00-prompt-inicio-deepseek.md
 │
